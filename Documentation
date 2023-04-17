@@ -1,0 +1,86 @@
+//p(t)= at^3 + bt^2 + ct + d, t is time between (0, 1) interval.
+//p'(t)= 3at^2 + 2bt + c
+
+//Using p and p', for t = 0 and t = 1:
+//p(0) = d
+//p(1) = a + b + c + d
+//p'(0) = c
+//p'(1) = 3a + 2b + c
+
+
+//Why polynom have 3 degree?
+//Lower degrees cannot interpolate smoothly. Does not join smoothly.
+//Higher degrees make the curve more wiggle.
+
+
+//Why use derivative?
+//We want the curves to join smoothly. So we can use the tange 
+//of enter of one curve to be the exit of the other in the 
+//interpolation proccess.
+
+//Look Hermetic curve: 
+//For P1, P2, T1 and T2.
+//P1 = First point
+//P2 = Last point
+//T1 = tangent of start point. (car velocity)
+//T2 = tagent of end point
+
+
+//Hermetic basis: Look the images of these
+//h1(s) = 2s^3 - 3s^2 + 1
+//h2(s) = -2s^3 + 3s^2
+//h3(s) = s^3 -2s^2 + s
+//h4(s) = s^3 - s^2
+
+//How to find the Hermetic basis?
+//Putting:
+    //p(0) = d
+    //p(1) = a + b + c + d
+    //p'(0) = c
+    //p'(1) = 3a + 2b + c
+
+//in matrix notation:
+// |p(0) |   | 0 0 0 1 | |a|
+// |p(1) | = | 1 1 1 1 | |b|
+// |p'(0)|   | 0 0 1 0 | |c|
+// |p'(1)|   | 3 2 1 0 | |d|
+
+// Can call it: p = M c
+// Separating c by multiplying by M^-1 =>
+    //|a|   | 0 0 0 1 | |p(0) |
+    //|b| = | 1 1 1 1 | |p(1) |
+    //|c|   | 0 0 1 0 | |p'(0)|
+    //|d|   | 3 2 1 0 | |p'(1)|
+
+//So, we have: c = M^-1 c.
+
+//Calculating M^-1:
+    //|a|   | 2 -2  1  1 | | x1 y1 z1   |
+    //|b| = | -3 3 -2 -1 | | x2 y2 z2   |
+    //|c|   | 0  0  1  0 | | dx1 dy1 dz1|
+    //|d|   | 1  0  0  0 | | dx2 dy2 dz2|
+
+//Using the parametrization:
+//                     | 2 -2  1  1 | | x1 y1 z1   |
+//Q(t) = [t^3 t^2 t 1] | -3 3 -2 -1 | | x2 y2 z2   |
+//                     | 0  0  1  0 | | dx1 dy1 dz1|
+//                     | 1  0  0  0 | | dx2 dy2 dz2|
+
+//Expanding we have:
+// Q = |x1| (2t^3 - 3t^2 + 1) + |x2| (-2t^3 + 3t^2) + |dx1|(t^3 - 2t^2 + t) + |dx2|(t^3 - t^2)
+
+//Cardinal Splines?
+
+//Using Cardinal splines we do not need to use the tangents.
+//We will lose fleibility but the curves will be easier to use.
+
+//It does use the control points instead of the tangents. The formula is:
+// Ti = a * (Pi+1 - Pi-1)
+
+//a represents the thightness of the curve, it is between (0, 1), a = 0.5 
+// is a good value to start.
+
+
+
+
+
