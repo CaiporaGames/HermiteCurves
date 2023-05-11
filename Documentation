@@ -1,6 +1,14 @@
+Imagine we have a point in the plane. We want to describe its curve in the cartesian plane and to do this we 
+approximaty the curve using a polinomial function like the below. This is possible to interpolate between two or more 
+points in a cartesian plane using a polynomial function. It is a theorem.
 //p(t)= at^3 + bt^2 + ct + d, t is time between (0, 1) interval.
+When we have more then two points and we need to interpolate between them and we want the curve to be smooth between the 
+points we can use the derivative from the polynomil function above. Doing so, we know the angle the particle is traveling between 
+two consecutives points.
 //p'(t)= 3at^2 + 2bt + c
 
+Observe that we are using this equations in a parametric way, where t is from 0 to 1. Applying the value 0 and 1 in the two 
+equations above we have:
 //Using p and p', for t = 0 and t = 1:
 //p(0) = d
 //p(1) = a + b + c + d
@@ -14,7 +22,7 @@
 
 
 //Why use derivative?
-//We want the curves to join smoothly. So we can use the tange 
+//We want the curves to join smoothly. So we can use the tangent
 //of enter of one curve to be the exit of the other in the 
 //interpolation proccess.
 
@@ -25,7 +33,7 @@
 //T1 = tangent of start point. (car velocity)
 //T2 = tagent of end point
 
-
+All the curves are aproximated using these 4 curves below. 
 //Hermetic basis: Look the images of these
 //h1(s) = 2s^3 - 3s^2 + 1
 //h2(s) = -2s^3 + 3s^2
