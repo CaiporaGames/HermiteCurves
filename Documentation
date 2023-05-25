@@ -60,7 +60,7 @@ All the curves are aproximated using these 4 curves below.
     //|c|   | 0 0 1 0 | |p'(0)|
     //|d|   | 3 2 1 0 | |p'(1)|
 
-//So, we have: c = M^-1 c.
+//So, we have: c = M^-1 p.
 
 //Calculating M^-1:
     //|a|   | 2 -2  1  1 | | x1 y1 z1   |
